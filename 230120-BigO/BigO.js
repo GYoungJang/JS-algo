@@ -68,9 +68,12 @@
 
 // logAtMost5(3);
 
-// O(n)
+// O(n);
 // function onlyElementsAtEvenIndex(array) {
-//   var newArray = Array(Math.ceil(array.length / 2));
+//   // 왜 생성자로 했을까...?
+//   // var newArray = Array(Math.ceil(array.length / 2));
+//   var newArray = [];
+//   console.log(newArray);
 //   for (var i = 0; i < array.length; i++) {
 //     if (i % 2 === 0) {
 //       newArray[i / 2] = array[i];
@@ -79,7 +82,7 @@
 //   return newArray;
 // }
 
-// console.log(onlyElementsAtEvenIndex([1, 2]));
+// console.log(onlyElementsAtEvenIndex([1,2,3,4,5]));
 
 // O(n**2)
 // function subtotals(array) {
@@ -98,21 +101,47 @@
 
 // toatal 변수 하나, i 변수 하나
 // O(1) space
-function sum(arr) {
-  let total = 0;
-  for (let i = 0; i < arr.length; i++) {
-    total += arr[i];
-  }
-  return total;
-}
+// function sum(arr) {
+//   let total = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     total += arr[i];
+//   }
+//   return total;
+// }
 
 // 어떤 상황에도 새로운 배열 newArr을 만듦
 // 그 배열이 차지하는 공간은 입력된 배열의 크기와 비례해서 커짐
 // O(n) space
-function double(arr) {
-  let newArr = [];
-  for (let i = 0; i < arr.legnth; i++) {
-    newArr.push(2 * arr[i]);
-  }
-  return newArr;
-}
+// function double(arr) {
+//   let newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     newArr.push(2 * arr[i]);
+//   }
+//   return newArr;
+// }
+
+// O(n) space
+// function onlyElementsAtEvenIndex(array) {
+//   var newArray = Array(Math.ceil(array.length / 2));
+//   for (var i = 0; i < array.length; i++) {
+//     if (i % 2 === 0) {
+//       newArray[i / 2] = array[i];
+//     }
+//   }
+//   return newArray;
+// }
+
+// console.log(onlyElementsAtEvenIndex([1, 2]));
+
+// O(n) space
+// function subtotals(array) {
+//   var subtotalArray = Array(array.length);
+//   for (var i = 0; i < array.length; i++) {
+//     var subtotal = 0;
+//     for (var j = 0; j <= i; j++) {
+//       subtotal += array[j];
+//     }
+//     subtotalArray[i] = subtotal;
+//   }
+//   return subtotalArray;
+// }
