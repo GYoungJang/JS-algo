@@ -18,12 +18,14 @@ function same(arr1, arr2) {
     }
     console.log(arr2);
     // 2 번째 배열에서 해당 값 삭제..
+    // 중복인 수가 있을 수 있으니까..
+    // indexOf는 찾으려는 문자열이 가장 처음으로 나타나는 인덱스 반환
     arr2.splice(correctIndex, 1);
   }
   return true;
 }
 
-console.log(same([1, 2, 3, 2], [9, 1, 4, 4]));
+console.log(same([1, 2, 3, 2], [9, 1, 4, 2]));
 
 // 빈도 카운터 패턴
 // O(n)
@@ -52,4 +54,39 @@ function same1(arr1, arr2) {
   }
 }
 
-console.log(same1([1, 2, 3, 2, 25], [9, 1, 4, 4]));
+console.log(same1([1, 2, 3, 2], [9, 1, 4, 4]));
+
+function aaa(a, b) {
+  // a, b의 길이가 다르면 false 반환
+  if (a.length !== b.length) {
+    return false;
+  }
+
+  // 빈 객체
+  let Obj1 = {};
+  let Obj2 = {};
+
+  // 배열을 돌면서 빈 객체에 동적으로 값 할당
+  // 이미 존재하면 +1 없으면 1을 기본값으로..
+  for (let value of a) {
+    Obj1[value] ? (Obj1[value] += 1) : (Obj1[value] = 1);
+  }
+  for (let value of b) {
+    Obj2[value] ? (Obj2[value] += 1) : (Obj2[value] = 1);
+  }
+
+  // Obj1 객체를 돌면서
+  for (let key in Obj1) {
+    // 1객체 키의 제곱을 한 키가 Obj2에 없을 경우 false
+    if (!(key ** 2 in Obj2)) {
+      return false;
+    }
+    // 두 객체의 키 밸류 값이 일치하지 않을 경우 false
+    if (Obj1[key] !== Obj2[key ** 2]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(aaa([1, 2, 2, 4], [1, 4, 9, 16]));
