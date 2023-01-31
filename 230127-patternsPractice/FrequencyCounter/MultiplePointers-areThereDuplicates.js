@@ -18,7 +18,7 @@ Space - O(1)
 // 나
 function areThereDuplicates(...arg) {
   if (arg.length <= 1) return false;
-  let sortedArg = arg.sort();
+  let sortedArg = arg.sort((a, b) => a - b);
   for (let i = 0; i < sortedArg.length - 1; i++) {
     if (sortedArg[i] === sortedArg[i + 1]) {
       return true;
