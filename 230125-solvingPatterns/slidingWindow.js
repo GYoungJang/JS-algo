@@ -11,6 +11,7 @@ function maxSubarraySum(arr, num) {
   if (num > arr.length) {
     return null;
   }
+  // 음수끼리 더할 수도 있으니까..
   let max = -Infinity;
   for (let i = 0; i < arr.length - num + 1; i++) {
     temp = 0;
@@ -20,8 +21,8 @@ function maxSubarraySum(arr, num) {
     if (temp > max) {
       max = temp;
     }
-    return max;
   }
+  return max;
 }
 
 // 강의
@@ -43,4 +44,5 @@ function maxSubarraySum1(arr, num) {
   return maxSum;
 }
 
+console.log(maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
 console.log(maxSubarraySum1([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));

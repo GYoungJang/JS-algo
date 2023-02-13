@@ -49,6 +49,7 @@ function validAnagram1(first, second) {
 
   for (let char of second) {
     if (!lookUp[char]) {
+      // value가 0이면 undefined => falsy
       return false;
     } else {
       lookUp[char] -= 1;
